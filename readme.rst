@@ -50,3 +50,20 @@ packaging and deployment
 deploys directly to s3 using knox. http://thechangelog.com/post/2128784522/knox-s3-lib
 
 code compiles with uglify.js
+
+Development
+-----------
+
+If you want to hack on contextualsdk, you can install all of its dependencies
+like this:
+
+::
+
+    $ npm install
+
+And then add the command to your ``PATH`` with npm's handy
+
+::
+
+    $ npm link
+
