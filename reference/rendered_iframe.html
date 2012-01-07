@@ -1,0 +1,186 @@
+<html>
+<head>
+    <script>(function () {
+        var a = window;
+
+        function b(d) {
+            this.t = {};
+            this.tick = function (d, h, c) {
+                c = void 0 != c ? c : (new Date).getTime();
+                this.t[d] = [c, h]
+            };
+            this.tick("start", null, d)
+        }
+
+        var e = new b;
+        a.jstiming = {Timer:b, load:e};
+        try {
+            var f = top != self, g = a.location.href, i = null;
+            a.chrome && a.chrome.csi && (i = Math.floor(a.chrome.csi().pageT));
+            null == i && a.gtbExternal && (i = f ? a.gtbExternal.frameT(g) : a.gtbExternal.pageT());
+            null == i && a.external && (i = f ? a.external.frameT(g) : a.external.pageT);
+            i && (a.jstiming.pt = i)
+        } catch (j) {
+        }
+        ;
+    })();
+    window["__csi"] = {a:false, b:false, c:"gm", v:"card", g:null, d:false};
+    var google = window.google || {};
+    google.csi = function () {
+        function c(a) {
+            var b = i ? i : document.location.href;
+            return(a = b.match(RegExp("[?&]" + a + "=([^&#]+)"))) ? a[1] : null
+        }
+
+        function b(a) {
+            window.jstiming.load.tick(a);
+            e[a] = (new Date).getTime()
+        }
+
+        function d() {
+            if (!h) {
+                var a = c("url") || "default", b = window.__csi || {}, d = b.c || "default", g = b.v || "default", l = window.encodeURIComponent ? encodeURIComponent : escape, l = {gadget:l(a), container:l(d), view:l(g)}, i = window.__dflags || {}, k = [];
+                b.g && k.push(b.g);
+                if (b.d)for (var j in i)"control" !== i[j] && (l[j] = i[j], "true" === i[j] && k.push(j));
+                l.e = k.join(",");
+                j = m ? m : document.location.protocol;
+                j = f[j];
+                window.jstiming.load.name = [d, "_", g].join("");
+                window.jstiming.report(window.jstiming.load, l, j);
+                if ((d = window.gadgets) && d.rpc && b.b)e.url = a, e.id = c("mid"), d.rpc.call(null, "time_iframe", null, e);
+                h = !0
+            }
+        }
+
+        function a(a) {
+            window.addEventListener ? window.addEventListener("load", a, !1) : window.attachEvent && window.attachEvent("onload", a)
+        }
+
+        function g(a) {
+            window.onbeforeunload = a
+        }
+
+        var f = {"http:":"http://csi.gstatic.com/csi", "https:":"https://gg.google.com/csi"}, e = {},
+                i, m, h = !1, k = window.__csi || {};
+        k.a ? (a(function () {
+            b("prt")
+        }), g(function () {
+            d()
+        })) : a(function () {
+            b("ol");
+            b("prt");
+            d()
+        });
+        return{reset_:function () {
+            h = !1
+        }, mockHref_:function (a) {
+            i = a
+        }, mockProtocol_:function (a) {
+            m = a
+        }, report_:d, tickPrtAndReport:function () {
+            b("prt");
+            d()
+        }, tickDl:function () {
+            b("dl")
+        }}
+    }();
+    if (window.jstiming) {
+        window.jstiming.beaconImageReferences_ = {};
+        window.jstiming.reportCounter_ = 1;
+        var getTick = function (c, b, d) {
+            var a = c.t[b], g = c.t.start;
+            if (a && (g || d))return a = c.t[b][0], g = void 0 != d ? d : g[0], a - g
+        }, getReportUri = function (c, b, d) {
+            var a = "";
+            window.jstiming.pt && (a += "&srt=" + window.jstiming.pt, delete window.jstiming.pt);
+            try {
+                window.external && window.external.tran ? a += "&tran=" + window.external.tran : window.gtbExternal && window.gtbExternal.tran ? a += "&tran=" + window.gtbExternal.tran() : window.chrome && window.chrome.csi &&
+                        (a += "&tran=" + window.chrome.csi().tran)
+            } catch (g) {
+            }
+            var f = window.chrome;
+            if (f && (f = f.loadTimes))f().wasFetchedViaSpdy && (a += "&p=s"), f().wasNpnNegotiated && (a += "&npn=1"), f().wasAlternateProtocolAvailable && (a += "&apa=1");
+            c.dapperCookie_ && (a += "&" + c.dapperCookie_);
+            var e = c.t, i = e.start, f = [], m = [], h;
+            for (h in e)if ("start" != h && 0 != h.indexOf("_")) {
+                var k = e[h][1];
+                k ? e[k] && m.push(h + "." + getTick(c, h, e[k][0])) : i && f.push(h + "." + getTick(c, h))
+            }
+            delete e.start;
+            if (b)for (var n in b)a += "&" + n + "=" + b[n];
+            (b = d) || (b = "https:" == document.location.protocol ?
+                    "https://csi.gstatic.com/csi" : "http://csi.gstatic.com/csi");
+            return c = [b, "?v=3", "&s=" + (window.jstiming.sn || "opensocial-gadgets") + "&action=", c.name, m.length ? "&it=" + m.join(",") : "", "", a, "&rt=", f.join(",")].join("")
+        }, sendReport_ = function (c, b, d) {
+            c = getReportUri(c, b, d);
+            if (!c)return"";
+            var b = new Image, a = window.jstiming.reportCounter_++;
+            window.jstiming.beaconImageReferences_[a] = b;
+            b.onload = b.onerror = function () {
+                window.jstiming && delete window.jstiming.beaconImageReferences_[a]
+            };
+            b.src = c;
+            b = null;
+            return c
+        };
+        window.jstiming.report =
+                function (c, b, d) {
+                    if ("prerender" == document.webkitVisibilityState) {
+                        var a = "webkitvisibilitychange", g = !1, f = function () {
+                            if (!g) {
+                                b ? b.prerender = "1" : b = {prerender:"1"};
+                                var e;
+                                "prerender" == document.webkitVisibilityState ? e = !1 : (sendReport_(c, b, d), e = !0);
+                                e && (g = !0, document.removeEventListener(a, f, !1))
+                            }
+                        };
+                        document.addEventListener(a, f, !1);
+                        return""
+                    }
+                    return sendReport_(c, b, d)
+                }
+    }
+    ;
+    </script>
+    <style type="text/css">body, td, div, span, p {
+        font-family: arial, sans-serif;
+    }
+
+    a {
+        color: #0000cc;
+    }
+
+    a:visited {
+        color: #551a8b;
+    }
+
+    a:active {
+        color: #ff0000;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: white;
+    }</style>
+    <script>__dflags = {"UseCajaSerializer":"false", "ContentDivGadgetRewriter":"false", "EnableContextCache":"false", "HtmlParser":"control", "CacheErrorThrottleCountLimit":"control", "ResourceUsageJsDebugGadgetRewriter":"true", "JsSubVersion":"control", "RefererProxy":"control", "UseJsHintIfAvailable":"false", "LogResources":"false", "GadgetBlacklist":"control", "DynamicHeightGadgetRewriter":"true", "BigstoreHosts":"control", "ErrorCodesToLog":"control", "AdsUrlGadgetRewriter":"true", "Monkeypatch":"control", "ProxyingGadgetRewriter":"true", "TrackResources":"false", "AnalyticsGadgetRewriter":"true", "CorpDomainSuffixes":"control", "ClickTrackGadgetRewriter":"false", "InjectClientId":"false", "CsiSample":"true", "UseJsPipelineForRendering":"false", "StyleAdjacencyGadgetRewriter":"true", "UseIfrVersion":"true", "DflagsJsDebugGadgetRewriter":"true", "IfrSubVersion":"control", "YtVideoUrlGadgetRewriter":"true", "StyleTagExtractorGadgetRewriter":"true", "MiniMessageGadgetRewriter":"true", "TimeSecsSinceEpochEnvGadgetRewriter":"true", "JsRepositoryId":"control", "UseUrlGadgetWhitelist":"false", "UseETags":"false", "GmailSkinsGadgetRewriter":"true"};
+    window['__isgadget'] = true;</script>
+    <script src="//www-gm-opensocial.googleusercontent.com/gadgets/js/auth-refresh:com.google.gadgets.analytics:core:dynamic-height:google.contentmatch:opensocial-0.9:osapi:setprefs.js?container=gm&amp;nocache=0&amp;debug=0&amp;c=0&amp;v=1674b5c26f02f05f8a3f009dc6e595b7&amp;sv=7&amp;jsload=0"></script>
+    <script>window['___jsl'] = window['___jsl'] || {};
+    (window['___jsl']['ci'] = (window['___jsl']['ci'] || [])).push({"opensocial":{"invalidatePath":"//%host%/gadgets/api/rpc", "path":"//%host%/api/rpc", "domain":"google.com", "supportedFields":{"person":["id", "name", "thumbnailUrl", "nickname"], "sortOrder":["name"], "mediaItem":["album_id", "created", "description", "duration", "file_size", "id", "language", "last_updated", "location", "mime_type", "num_comments", "num_views", "num_votes", "rating", "start_time", "tagged_people", "tags", "thumbnail_url", "title", "type", "url"], "album":["id", "thumbnailUrl", "title", "description", "location", "ownerId"], "name":["unstructured", "familyName", "givenName", "additionalName", "honorificPrefix, honorificSuffix"], "filterType":["all", "hasApp"], "activityMediaItem":["type", "mimeType", "url"], "activity":["appId", "body", "bodyId", "externalId", "id", "mediaItems", "postedTime", "priority", "streamFaviconUrl", "streamSourceUrl", "streamTitle", "streamUrl", "templateParams", "title", "url", "userId", "mediaItems", "postedTime"]}}, "rpc":{"commSwf":"//xpc.googleusercontent.com/gadgets/xpc.swf", "passReferrer":"p2c:query", "parentRelayUrl":"/rpc_relay.html"}, "shindig.auth":{"authToken":"", "trustedJson":""}, "core.util":{"setprefs":{}, "osapi":{}, "core":{}, "google.contentmatch":{"extractors":"\n                google.com:SubjectExtractor\n            "}, "opensocial-0.9":{}}, "osapi.services":{"//%host%/gadgets/api/rpc":["http.get", "http.post", "http.put", "http.delete", "http.head", "cache.invalidate"], "//%host%/api/rpc":["activities.get", "activities.create", "activities.update", "activities.delete", "activities.supportedFields", "appdata.get", "appdata.create", "appdata.update", "appdata.delete", "finance.get", "weather.get", "people.get", "people.supportedFields"], "gadgets.rpc":["container.listMethods"]}, "core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest", "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"}});
+    gadgets.config.init({"opensocial":{"invalidatePath":"//%host%/gadgets/api/rpc", "path":"//%host%/api/rpc", "domain":"google.com", "supportedFields":{"person":["id", "name", "thumbnailUrl", "nickname"], "sortOrder":["name"], "mediaItem":["album_id", "created", "description", "duration", "file_size", "id", "language", "last_updated", "location", "mime_type", "num_comments", "num_views", "num_votes", "rating", "start_time", "tagged_people", "tags", "thumbnail_url", "title", "type", "url"], "album":["id", "thumbnailUrl", "title", "description", "location", "ownerId"], "name":["unstructured", "familyName", "givenName", "additionalName", "honorificPrefix, honorificSuffix"], "filterType":["all", "hasApp"], "activityMediaItem":["type", "mimeType", "url"], "activity":["appId", "body", "bodyId", "externalId", "id", "mediaItems", "postedTime", "priority", "streamFaviconUrl", "streamSourceUrl", "streamTitle", "streamUrl", "templateParams", "title", "url", "userId", "mediaItems", "postedTime"]}}, "rpc":{"commSwf":"//xpc.googleusercontent.com/gadgets/xpc.swf", "passReferrer":"p2c:query", "parentRelayUrl":"/rpc_relay.html"}, "shindig.auth":{"authToken":"", "trustedJson":""}, "core.util":{"setprefs":{}, "osapi":{}, "core":{}, "google.contentmatch":{"extractors":"\n                google.com:SubjectExtractor\n            "}, "opensocial-0.9":{}}, "osapi.services":{"//%host%/gadgets/api/rpc":["http.get", "http.post", "http.put", "http.delete", "http.head", "cache.invalidate"], "//%host%/api/rpc":["activities.get", "activities.create", "activities.update", "activities.delete", "activities.supportedFields", "appdata.get", "appdata.create", "appdata.update", "appdata.delete", "finance.get", "weather.get", "people.get", "people.supportedFields"], "gadgets.rpc":["container.listMethods"]}, "core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest", "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"}});
+    </script>
+    <script>gadgets.Prefs.setMessages_({});
+    gadgets.Prefs.setDefaultPrefs_({});
+    gadgets.io.preloaded_ = [];</script>
+
+</head>
+<body dir="ltr">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://s3.amazonaws.com/xxx.min.js" type="text/javascript"></script>
+<div style="width: 100px; height: 100px; background: #000;"></div>
+<script>gadgets.util.runOnLoadHandlers();</script>
+<script>window.google.csi.tickDl();
+</script>
+</body>
+</html>
