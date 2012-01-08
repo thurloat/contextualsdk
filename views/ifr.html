@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <style type="text/css">body, td, div, span, p {
+        font-family: arial, sans-serif;
+    }
+
+    a {
+        color: #0000cc;
+    }
+
+    a:visited {
+        color: #551a8b;
+    }
+
+    a:active {
+        color: #ff0000;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: white;
+    }</style>
+    <script type="text/javascript">
+        __dflags = {"UseCajaSerializer":"false", "ContentDivGadgetRewriter":"false", "EnableContextCache":"false", "HtmlParser":"control", "CacheErrorThrottleCountLimit":"control", "ResourceUsageJsDebugGadgetRewriter":"true", "JsSubVersion":"control", "RefererProxy":"control", "UseJsHintIfAvailable":"false", "LogResources":"false", "GadgetBlacklist":"control", "DynamicHeightGadgetRewriter":"true", "BigstoreHosts":"control", "ErrorCodesToLog":"control", "AdsUrlGadgetRewriter":"true", "Monkeypatch":"control", "ProxyingGadgetRewriter":"true", "TrackResources":"false", "AnalyticsGadgetRewriter":"true", "CorpDomainSuffixes":"control", "ClickTrackGadgetRewriter":"false", "InjectClientId":"false", "CsiSample":"true", "UseJsPipelineForRendering":"false", "StyleAdjacencyGadgetRewriter":"true", "UseIfrVersion":"true", "DflagsJsDebugGadgetRewriter":"true", "IfrSubVersion":"control", "YtVideoUrlGadgetRewriter":"true", "StyleTagExtractorGadgetRewriter":"true", "MiniMessageGadgetRewriter":"true", "TimeSecsSinceEpochEnvGadgetRewriter":"true", "JsRepositoryId":"control", "UseUrlGadgetWhitelist":"false", "UseETags":"false", "GmailSkinsGadgetRewriter":"true"};
+        window['__isgadget'] = true;
+        var gapi = window.gapi || {};
+        gapi.client = window.gapi && window.gapi.client || {};
+        var google = window.google;
+    </script>
+    <!-- feature: globals -->
+    <script type="text/javascript" src="/js/globals.js"></script>
+    <!-- feature: taming -->
+    <script type="text/javascript" src="/js/taming.js"></script>
+    <!-- feature: core.config.base -->
+    <script type="text/javascript" src="/js/config.js"></script>
+    <!-- feature: core.log -->
+    <script type="text/javascript" src="/js/log.js"></script>
+    <!-- feature: core.config (validators) -->
+    <script type="text/javascript" src="/js/validators.js"></script>
+    <!-- feature: core.util.base -->
+    <script type="text/javascript" src="/js/base.js"></script>
+    <!-- feature: core.util.dom -->
+    <script type="text/javascript" src="/js/dom.js"></script>
+    <!-- feature: core.util.event -->
+    <script type="text/javascript" src="/js/event.js"></script>
+    <!-- feature: core.util.onload -->
+    <script type="text/javascript" src="/js/onload.js"></script>
+    <!-- feature: core.util.string -->
+    <script type="text/javascript" src="/js/string.js"></script>
+    <!-- feature: core.util.urlparams -->
+    <script type="text/javascript" src="/js/urlparams.js"></script>
+    <!-- feature: core.util -->
+    <script type="text/javascript" src="/js/util.js"></script>
+    <!-- Google Custom Stuff -->
+    <script type="text/javascript">
+        gapi.util = window.gapi && window.gapi.util || {};
+
+        /* feature: gapi.util.getOrigin */
+        gapi.util.getOrigin = function(a) {
+            if (!a) return "";
+            a = a.split("#")[0].split("?")[0];
+            a = a.toLowerCase();
+            0 == a.indexOf("//") && (a = window.location.protocol + a);
+            0 > a.indexOf("://") && (a = window.location.protocol + "//" + a);
+            var b = a.substring(a.indexOf("://") + 3),
+                    c = b.indexOf("/"); - 1 != c && (b = b.substring(0, c));
+            var a = a.substring(0, a.indexOf("://")),
+                    c = "",
+                    d = b.indexOf(":");
+            if (-1 != d) {
+                var e = b.substring(d + 1),
+                        b = b.substring(0, d);
+                if ("http" === a && "80" !== e || "https" === a && "443" !== e) c = ":" + e
+            }
+            return a + "://" + b + c
+        };
+    </script>
+    <!-- feature: core.json -->
+    <script type="text/javascript" src="/js/json-native.js"></script>
+    <script type="text/javascript" src="/js/json-jsimpl.js"></script>
+    <script type="text/javascript" src="/js/json-flatten.js"></script>
+
+    <!-- feature: shindig.auth -->
+    <script type="text/javascript" src="/js/auth.js"></script>
+    <!-- feature: rpc -->
+    <script type="text/javascript" src="/js/rpc/rmr.transport.js"></script>
+    <script type="text/javascript" src="/js/rpc/ifpc.transport.js"></script>
+    <script type="text/javascript" src="/js/rpc/rpc.js"></script>
+
+    <!-- feature: opensocial-reference -->
+    <!-- TODO: figure this out. -->
+
+    <!-- feature: auth-refresh -->
+    <script type="text/javascript" src="/js/auth-refresh.js"></script>
+
+    <!-- feature: core.prefs -->
+    <script type="text/javascript" src="/js/prefs.js"></script>
+
+    <!-- feature: core.io -->
+    <script type="text/javascript" src="/js/io.js"></script>
+
+    <!-- feature: opensocial-base -->
+    <!-- feature: opensocial-jsonrpc -->
+
+    <!-- feature: core.legacy -->
+    <script type="text/javascript" src="/js/legacy.js"></script>
+
+    <!-- feature: core.tracking -->
+    <!-- Custom Google Thing -->
+    <script type="text/javascript">
+        (function() {
+            function e(b, c, a) {
+                b = {
+                    msg: b || "",
+                    line: a || 0,
+                    jsUrl: 0 == window.location.href.indexOf(c) ? "-top-" : c,
+                    fullUrl: window.location
+                };
+                try {
+                    if (++window._varz_numerrors, gadgets && !(3 < f)) {
+                        c = {};
+                        c[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+                        var a = encodeURIComponent || escape,
+                                d = gadgets.util.getUrlParameters(),
+                                e = d.container || d.synd,
+                                g = d.gadget || d.url,
+                                i = ["/gadgets/evthdlr?t=err&gadget=", a(g), "&container=", a(e), "&jsurl=", a(b.jsUrl), "&line=", a(b.line), "&session=", h, "&count=", f, "&msg=", a(b.msg)];
+                        gadgets.io.makeNonProxiedRequest(i.join(""), null, c);
+                        f++
+                    }
+                } catch (j) {}
+            }
+            window._varz_numerrors = 0;
+            var h = (new Date).getTime(),
+                    f = 0;
+            if (-1 == window.location.href.indexOf("&debug=1") && -1 == window.location.href.indexOf("?debug=1")) window.onerror = e
+        })();
+    </script>
+
+    <!-- feature: caja html sanitizer -->
+    <script type="text/javascript" src="/js/html-sanitizer-min.js"></script>
+
+    <!-- feature: com.google.gadgets.analytics -->
+    <script type="text/javascript" src="/js/google/analytics.js"></script>
+
+    <!-- feature: osapi.base -->
+    <script type="text/javascript" src="/js/osapi-base/batch.js"></script>
+    <script type="text/javascript" src="/js/osapi-base/osapi.js"></script>
+    <!-- feature: osapi -->
+    <script type="text/javascript" src="/js/osapi/jsonrpctransport.js"></script>
+    <script type="text/javascript" src="/js/osapi/gadgetsrpctransport.js"></script>
+    <script type="text/javascript" src="/js/osapi/peoplehelpers.js"></script>
+
+    <!-- feature: dynamic-height -->
+    <!-- TODO: Leaving this out for now, as we can't resize a full tab -->
+
+    <!-- feature: setprefs -->
+    <script type="text/javascript" src="/js/setprefs.js"></script>
+
+    <!-- This does something ... not sure yet. -->
+    <script type="text/javascript">
+        (function() {
+            var j = window['___jsl'];
+            if (j['c']) {
+                j['c']();
+                delete j['c'];
+            }
+        })();
+        window['___jsl'] = window['___jsl'] || {};
+        (window['___jsl']['ci'] = (window['___jsl']['ci'] || [])).push({"opensocial":{"invalidatePath":"//%host%/gadgets/api/rpc", "path":"//%host%/api/rpc", "domain":"google.com", "supportedFields":{"person":["id", "name", "thumbnailUrl", "nickname"], "sortOrder":["name"], "mediaItem":["album_id", "created", "description", "duration", "file_size", "id", "language", "last_updated", "location", "mime_type", "num_comments", "num_views", "num_votes", "rating", "start_time", "tagged_people", "tags", "thumbnail_url", "title", "type", "url"], "album":["id", "thumbnailUrl", "title", "description", "location", "ownerId"], "name":["unstructured", "familyName", "givenName", "additionalName", "honorificPrefix, honorificSuffix"], "filterType":["all", "hasApp"], "activityMediaItem":["type", "mimeType", "url"], "activity":["appId", "body", "bodyId", "externalId", "id", "mediaItems", "postedTime", "priority", "streamFaviconUrl", "streamSourceUrl", "streamTitle", "streamUrl", "templateParams", "title", "url", "userId", "mediaItems", "postedTime"]}}, "rpc":{"commSwf":"//xpc.googleusercontent.com/gadgets/xpc.swf", "passReferrer":"p2c:query", "parentRelayUrl":"/rpc_relay.html"}, "shindig.auth":{"authToken":"", "trustedJson":""}, "core.util":{"setprefs":{}, "osapi":{}, "core":{}, "google.contentmatch":{"extractors":"\n                google.com:SubjectExtractor\n            "}, "opensocial-0.9":{}}, "osapi.services":{"//%host%/gadgets/api/rpc":["http.get", "http.post", "http.put", "http.delete", "http.head", "cache.invalidate"], "//%host%/api/rpc":["activities.get", "activities.create", "activities.update", "activities.delete", "activities.supportedFields", "appdata.get", "appdata.create", "appdata.update", "appdata.delete", "finance.get", "weather.get", "people.get", "people.supportedFields"], "gadgets.rpc":["container.listMethods"]}, "core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest", "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"}});
+        gadgets.config.init({"opensocial":{"invalidatePath":"//%host%/gadgets/api/rpc", "path":"//%host%/api/rpc", "domain":"google.com", "supportedFields":{"person":["id", "name", "thumbnailUrl", "nickname"], "sortOrder":["name"], "mediaItem":["album_id", "created", "description", "duration", "file_size", "id", "language", "last_updated", "location", "mime_type", "num_comments", "num_views", "num_votes", "rating", "start_time", "tagged_people", "tags", "thumbnail_url", "title", "type", "url"], "album":["id", "thumbnailUrl", "title", "description", "location", "ownerId"], "name":["unstructured", "familyName", "givenName", "additionalName", "honorificPrefix, honorificSuffix"], "filterType":["all", "hasApp"], "activityMediaItem":["type", "mimeType", "url"], "activity":["appId", "body", "bodyId", "externalId", "id", "mediaItems", "postedTime", "priority", "streamFaviconUrl", "streamSourceUrl", "streamTitle", "streamUrl", "templateParams", "title", "url", "userId", "mediaItems", "postedTime"]}}, "rpc":{"commSwf":"//xpc.googleusercontent.com/gadgets/xpc.swf", "passReferrer":"p2c:query", "parentRelayUrl":"/rpc_relay.html"}, "shindig.auth":{"authToken":"", "trustedJson":""}, "core.util":{"setprefs":{}, "osapi":{}, "core":{}, "google.contentmatch":{"extractors":"\n                google.com:SubjectExtractor\n            "}, "opensocial-0.9":{}}, "osapi.services":{"//%host%/gadgets/api/rpc":["http.get", "http.post", "http.put", "http.delete", "http.head", "cache.invalidate"], "//%host%/api/rpc":["activities.get", "activities.create", "activities.update", "activities.delete", "activities.supportedFields", "appdata.get", "appdata.create", "appdata.update", "appdata.delete", "finance.get", "weather.get", "people.get", "people.supportedFields"], "gadgets.rpc":["container.listMethods"]}, "core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest", "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"}});
+        gadgets.Prefs.setMessages_({});
+        gadgets.Prefs.setDefaultPrefs_({});
+        gadgets.io.preloaded_ = [];
+    </script>
+</head>
+<body dir="ltr">
+</body>
+</html>
