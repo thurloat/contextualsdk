@@ -168,8 +168,43 @@
             }
         })();
         window['___jsl'] = window['___jsl'] || {};
-        (window['___jsl']['ci'] = (window['___jsl']['ci'] || [])).push({"opensocial":{"invalidatePath":"//%host%/gadgets/api/rpc", "path":"//%host%/api/rpc", "domain":"google.com", "supportedFields":{"person":["id", "name", "thumbnailUrl", "nickname"], "sortOrder":["name"], "mediaItem":["album_id", "created", "description", "duration", "file_size", "id", "language", "last_updated", "location", "mime_type", "num_comments", "num_views", "num_votes", "rating", "start_time", "tagged_people", "tags", "thumbnail_url", "title", "type", "url"], "album":["id", "thumbnailUrl", "title", "description", "location", "ownerId"], "name":["unstructured", "familyName", "givenName", "additionalName", "honorificPrefix, honorificSuffix"], "filterType":["all", "hasApp"], "activityMediaItem":["type", "mimeType", "url"], "activity":["appId", "body", "bodyId", "externalId", "id", "mediaItems", "postedTime", "priority", "streamFaviconUrl", "streamSourceUrl", "streamTitle", "streamUrl", "templateParams", "title", "url", "userId", "mediaItems", "postedTime"]}}, "rpc":{"commSwf":"//xpc.googleusercontent.com/gadgets/xpc.swf", "passReferrer":"p2c:query", "parentRelayUrl":"/rpc_relay.html"}, "shindig.auth":{"authToken":"", "trustedJson":""}, "core.util":{"setprefs":{}, "osapi":{}, "core":{}, "google.contentmatch":{"extractors":"\n                google.com:SubjectExtractor\n            "}, "opensocial-0.9":{}}, "osapi.services":{"//%host%/gadgets/api/rpc":["http.get", "http.post", "http.put", "http.delete", "http.head", "cache.invalidate"], "//%host%/api/rpc":["activities.get", "activities.create", "activities.update", "activities.delete", "activities.supportedFields", "appdata.get", "appdata.create", "appdata.update", "appdata.delete", "finance.get", "weather.get", "people.get", "people.supportedFields"], "gadgets.rpc":["container.listMethods"]}, "core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest", "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"}});
-        gadgets.config.init({"opensocial":{"invalidatePath":"//%host%/gadgets/api/rpc", "path":"//%host%/api/rpc", "domain":"google.com", "supportedFields":{"person":["id", "name", "thumbnailUrl", "nickname"], "sortOrder":["name"], "mediaItem":["album_id", "created", "description", "duration", "file_size", "id", "language", "last_updated", "location", "mime_type", "num_comments", "num_views", "num_votes", "rating", "start_time", "tagged_people", "tags", "thumbnail_url", "title", "type", "url"], "album":["id", "thumbnailUrl", "title", "description", "location", "ownerId"], "name":["unstructured", "familyName", "givenName", "additionalName", "honorificPrefix, honorificSuffix"], "filterType":["all", "hasApp"], "activityMediaItem":["type", "mimeType", "url"], "activity":["appId", "body", "bodyId", "externalId", "id", "mediaItems", "postedTime", "priority", "streamFaviconUrl", "streamSourceUrl", "streamTitle", "streamUrl", "templateParams", "title", "url", "userId", "mediaItems", "postedTime"]}}, "rpc":{"commSwf":"//xpc.googleusercontent.com/gadgets/xpc.swf", "passReferrer":"p2c:query", "parentRelayUrl":"/rpc_relay.html"}, "shindig.auth":{"authToken":"", "trustedJson":""}, "core.util":{"setprefs":{}, "osapi":{}, "core":{}, "google.contentmatch":{"extractors":"\n                google.com:SubjectExtractor\n            "}, "opensocial-0.9":{}}, "osapi.services":{"//%host%/gadgets/api/rpc":["http.get", "http.post", "http.put", "http.delete", "http.head", "cache.invalidate"], "//%host%/api/rpc":["activities.get", "activities.create", "activities.update", "activities.delete", "activities.supportedFields", "appdata.get", "appdata.create", "appdata.update", "appdata.delete", "finance.get", "weather.get", "people.get", "people.supportedFields"], "gadgets.rpc":["container.listMethods"]}, "core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest", "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"}});
+        var init_obj = {
+            "opensocial":{
+                "invalidatePath":"//%host%/gadgets/api/rpc",
+                "path":"//%host%/api/rpc",
+                "domain":"google.com",
+                "supportedFields":{"person":["id", "name", "thumbnailUrl", "nickname"], "sortOrder":["name"], "mediaItem":["album_id", "created", "description", "duration", "file_size", "id", "language", "last_updated", "location", "mime_type", "num_comments", "num_views", "num_votes", "rating", "start_time", "tagged_people", "tags", "thumbnail_url", "title", "type", "url"], "album":["id", "thumbnailUrl", "title", "description", "location", "ownerId"], "name":["unstructured", "familyName", "givenName", "additionalName", "honorificPrefix, honorificSuffix"], "filterType":["all", "hasApp"], "activityMediaItem":["type", "mimeType", "url"], "activity":["appId", "body", "bodyId", "externalId", "id", "mediaItems", "postedTime", "priority", "streamFaviconUrl", "streamSourceUrl", "streamTitle", "streamUrl", "templateParams", "title", "url", "userId", "mediaItems", "postedTime"]}
+            },
+            "rpc":{
+                "commSwf":"//xpc.googleusercontent.com/gadgets/xpc.swf",
+                "passReferrer":"p2c:query",
+                "parentRelayUrl":"/rpc_relay.html"
+            },
+            "shindig.auth":{
+                "authToken":"",
+                "trustedJson":""
+            },
+            "core.util":{
+                "setprefs":{},
+                "osapi":{},
+                "core":{},
+                "google.contentmatch":{
+                    "extractors":"\n                google.com:SubjectExtractor\n            "
+                },
+                "opensocial-0.9":{}
+            },
+            "osapi.services":{
+                "//%host%/gadgets/api/rpc":["http.get", "http.post", "http.put", "http.delete", "http.head", "cache.invalidate"],
+                "//%host%/api/rpc":["activities.get", "activities.create", "activities.update", "activities.delete", "activities.supportedFields", "appdata.get", "appdata.create", "appdata.update", "appdata.delete", "finance.get", "weather.get", "people.get", "people.supportedFields"],
+                "gadgets.rpc":["container.listMethods"]
+            },
+            "core.io":{
+                "jsonProxyUrl":"//%host%/gadgets/makeRequest",
+                "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"
+            }
+        };
+        (window['___jsl']['ci'] = (window['___jsl']['ci'] || [])).push(init_obj);
+        gadgets.config.init(init_obj);
         gadgets.Prefs.setMessages_({});
         gadgets.Prefs.setDefaultPrefs_({});
         gadgets.io.preloaded_ = [];
