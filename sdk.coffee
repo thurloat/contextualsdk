@@ -21,4 +21,4 @@ app.get "/", (req, res) ->
 
 if not module.parent
   app.listen(8000)
-  console.log("Server started at localhost:8080/ !")
+  console.log("Server started at localhost:8000")
