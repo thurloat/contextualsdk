@@ -1,5 +1,7 @@
 express       = require 'express'
 swig          = require 'swig'
+xml2js        = require 'xml2js'
+fs            = require 'fs'
 http          = require 'http'
 url           = require 'url'
 app           = module.exports = express.createServer()
@@ -56,6 +58,25 @@ app.get "/gadgets/makeRequest", (req, res) ->
 #  proxy req, res
 
 app.get "/ifr", (req, res) ->
+  # Read in the application manifest file.
+  appXMLPath = req.query.application
+
+  parser = new xml2js.Parser()
+
+  fs.readFile __dirname + '/../' + req.query.application, (error, data) ->
+    # Parse the xml file through xml2js parser
+    parser.parseString data, (err, result) ->
+
+      gadgetBlock = null
+
+      # Find the Extension block in the XML that points to the gadget.xml file.
+      for ext in result.Extension
+        if ext['@'].type is 'gadget'
+          gadgetBlock = ext
+      
+      gadgetUrl = gadgetBlock.Url
+      console.log gadgetUrl
+
   res.render 'ifr'
 
 app.get "/", (req, res) ->

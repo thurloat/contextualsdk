@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationManifest xmlns="http://schemas.google.com/ApplicationManifest/2009">
+    <Name>Reference</Name>
+    <Description>Reference</Description>
+    <Support>
+        <!-- XXX: Update Support Link -->
+        <Link rel="support" href="https://github.com/thurloat/contextualsdk" />
+    </Support>
+
+    <!-- EXTRACTORS -->
+    <Extension id="SubjectExtractor" type="contextExtractor">
+        <Name>Subject Extractor</Name>
+        <Url>google.com:SubjectExtractor</Url>
+        <Param name="subject" value="(.*)[A-Z]+(.*)"/>
+        <Triggers ref="ReferenceGadget"/>
+        <Scope ref="emailSubject"/>
+        <Container name="mail"/>
+    </Extension>
+
+    <Extension id="EmailBodyExtractor" type="contextExtractor">
+        <Name>Email Body Extractor</Name>
+        <Url>google.com:EmailBodyExtractor</Url>
+        <Param name="email_body" value="(.*)[A-Z]+(.*)"/>
+        <Triggers ref="ReferenceGadget"/>
+        <Scope ref="emailBody"/>
+        <Container name="mail"/>
+    </Extension>
+
+    <!-- GADGET -->
+    <Extension id="ReferenceGadget" type="gadget">
+        <Url>{{ HOSTNAME }}/gadget.xml</Url>
+        <Container name="mail"/>
+    </Extension>
+
+    <!-- SCOPES -->
+    <Scope id="emailSubject">
+        <Url>tag:google.com,2010:auth/contextual/extractor/SUBJECT</Url>
+        <Reason>Looking in your subject.</Reason>
+    </Scope>
+
+    <Scope id="emailBody">
+        <Url>tag:google.com,2010:auth/contextual/extractor/BODY</Url>
+        <Reason>Checking out your body.</Reason>
+    </Scope>
+</ApplicationManifest>
