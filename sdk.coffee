@@ -9,26 +9,25 @@ swig.init
   allowErrors: true
 
 app.set 'view engine', 'html'
-app.set 'view options', {layout: false}
+app.set 'view options', layout: false
 app.register '.html', swig
 
 # Hook up static file serving for JS and CSS bits.
 app.use express.static __dirname + '/public'
 
 # Enable parsing of post body data.
-app.use(express.bodyParser());
+app.use express.bodyParser()
 
 # Proxy method
 # acts as the makeRequest proxy server.
 # does not work yet.
 proxy = (method, proxyUrl, headers, contentType, postData, callback) ->
   parsedUrl = url.parse proxyUrl
-  requestOptions = {
-    host: parsedUrl.host,
-    port: 80,
-    method: method,
+  requestOptions =
+    host: parsedUrl.host
+    port: 80
+    method: method
     path: parsedUrl.path
-  }
 
   req = http.request requestOptions, (res) ->
     # TODO: Implement this
@@ -49,7 +48,8 @@ app.get "/gadgets/makeRequest", (req, res) ->
   method = q.httpMethod
 
   proxy method, proxyUrl, headers, contentType, {}, (proxyResponse) ->
-    res.writeHead 200 { 'content-type': contentType }
+    res.writeHead 200,
+      'content-type': contentType
     res.end proxyResponse
 
 #app.post "/gadgets/makeRequest", (req, res) ->
@@ -61,5 +61,5 @@ app.get "/ifr", (req, res) ->
 app.get "/", (req, res) ->
   res.render 'index'
 
-app.listen(8000)
-console.log("Server started at localhost:8000")
+app.listen 8000
+console.log "Server started at localhost:8000"
