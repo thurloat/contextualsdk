@@ -18,7 +18,7 @@ app.use express.static __dirname + '/public'
 # Enable parsing of post body data.
 app.use(express.bodyParser());
 
-### Proxy method
+# Proxy method
 # acts as the makeRequest proxy server.
 # does not work yet.
 proxy = (method, proxyUrl, headers, contentType, postData, callback) ->
