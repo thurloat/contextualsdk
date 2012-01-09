@@ -67,3 +67,21 @@ And then add the command to your ``PATH`` with npm's handy
 
     $ npm link
 
+Compilation
+...........
+
+You can use the nifty ``cake`` command to compile all coffeescript files in
+``src/`` to javascript in ``lib/``.
+
+:: 
+
+    $ cake build
+
+If you are working on the express server you might find it easier to run it
+directly like this:
+
+::
+
+    $ coffee src/sdk.coffee
+
+instead of recompiling all the time.
