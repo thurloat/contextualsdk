@@ -86,6 +86,8 @@
     <!-- feature: rpc -->
     <script type="text/javascript" src="/js/rpc/rmr.transport.js"></script>
     <script type="text/javascript" src="/js/rpc/ifpc.transport.js"></script>
+    <!-- include the postMessage transport for RPC calls and browsers that support it. -->
+    <script type="text/javascript" src="/js/rpc/wpm.transport.js"></script>
     <script type="text/javascript" src="/js/rpc/rpc.js"></script>
 
     <!-- feature: opensocial-reference -->
@@ -160,13 +162,15 @@
 
     <!-- This does something ... not sure yet. -->
     <script type="text/javascript">
-        (function() {
-            var j = window['___jsl'];
-            if (j['c']) {
-                j['c']();
-                delete j['c'];
-            }
-        })();
+// these are the last couple lines from the minified JS that google generates.
+// no idea what it does.
+//        (function() {
+//            var j = window['___jsl'];
+//            if (j['c']) {
+//                j['c']();
+//                delete j['c'];
+//            }
+//        })();
         window['___jsl'] = window['___jsl'] || {};
         var init_obj = {
             "opensocial":{
@@ -199,8 +203,8 @@
                 "gadgets.rpc":["container.listMethods"]
             },
             "core.io":{
-                "jsonProxyUrl":"//%host%/gadgets/makeRequest",
-                "proxyUrl":"//www-gm-opensocial.googleusercontent.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"
+                "jsonProxyUrl":"//%host%/gadgets/makeRequest", // This is the proxy url that we care about.
+                "proxyUrl":"//localhost:8000/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"
             }
         };
         (window['___jsl']['ci'] = (window['___jsl']['ci'] || [])).push(init_obj);
@@ -211,5 +215,6 @@
     </script>
 </head>
 <body dir="ltr">
+<h1>Test</h1>
 </body>
 </html>
